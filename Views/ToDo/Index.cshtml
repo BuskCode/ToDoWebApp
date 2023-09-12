@@ -1,0 +1,37 @@
+@model List<ToDoWebApp.Models.ToDoItem>
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <h2 class="mb-3">Min ToDo-liste</h2>
+            <form id="todoForm" method="post" action="/ToDo/Add">
+                <div class="input-group mb-3">
+                    <input type="text" name="Task" class="form-control" placeholder="Tilføj en ny opgave" id="todoInput">
+                    <div class="input-group-append">
+                        <button class="btn btn-primary" type="submit">Tilføj</button>
+                    </div>
+                </div>
+            </form>
+
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Opgave</th>
+                        <th>Handlinger</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach(var item in Model)
+                    {
+                        <tr>
+                            <td>@item.Task</td>
+                            <td>
+                                <a href="/ToDo/Delete/@item.Id" class="btn btn-danger btn-sm">Slet</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

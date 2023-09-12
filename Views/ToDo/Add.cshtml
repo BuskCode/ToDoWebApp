@@ -1,0 +1,13 @@
+@model ToDoWebApp.Models.ToDoItem
+
+<h2>Add a Task</h2>
+
+<form asp-action="Add" method="post">
+    <div>
+        <label>Task:</label>
+        <input asp-for="Task" required />
+    </div>
+    <div>
+        <input type="submit" value="Add Task" />
+    </div>
+</form>
